@@ -6,6 +6,9 @@
     <title>Gregorio Pedrini | Alpinismo & Arrampicata</title>
     <meta name="description" content="Uscite di alpinismo e arrampicata con Gregorio Pedrini. Scopri il calendario di Gennaio 2026 nelle Alpi Apuane.">
     
+    <!-- Configurazione per il nuovo dominio gregoriopedrini.com -->
+    <link rel="canonical" href="https://gregoriopedrini.com/">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -33,6 +36,17 @@
             transform: translateY(-4px);
             border-color: var(--brand-color);
             box-shadow: 0 10px 30px -10px rgba(23, 162, 173, 0.3);
+        }
+
+        .custom-card {
+            background: rgba(23, 162, 173, 0.05);
+            border: 2px dashed #17a2ad;
+            transition: all 0.2s ease;
+        }
+
+        .custom-card:hover {
+            background: rgba(23, 162, 173, 0.1);
+            transform: scale(1.02);
         }
 
         .btn-reserve {
@@ -84,9 +98,19 @@
         </div>
     </header>
 
-    <!-- Lista Uscite -->
+    <!-- Sezione Uscite -->
     <main class="max-w-md mx-auto px-4 space-y-6 flex-grow">
-        <div class="flex items-center justify-between mb-2 px-2">
+        
+        <!-- USCITA PERSONALIZZATA -->
+        <div onclick="prenotaPersonalizzata()" class="custom-card p-5 rounded-3xl cursor-pointer text-center group">
+            <div class="flex items-center justify-center gap-3 mb-2">
+                <i class="fa-solid fa-map-location-dot text-[#17a2ad] text-xl group-hover:animate-bounce"></i>
+                <h3 class="text-sm font-black uppercase tracking-widest text-[#17a2ad]">Uscita Personalizzata</h3>
+            </div>
+            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">Hai un progetto o una cima specifica? Organizziamola insieme.</p>
+        </div>
+
+        <div class="flex items-center justify-between mt-8 mb-2 px-2">
             <h2 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 flex items-center gap-2">
                 <span class="w-2 h-2 bg-[#17a2ad] rounded-full animate-pulse"></span> Calendario Gennaio
             </h2>
@@ -173,10 +197,16 @@
     </footer>
 
     <script>
+        const WHATSAPP_NUMBER = "393205586883";
+
         function prenota(via, data) {
-            const n = "393205586883";
             const msg = `Ciao Gregorio! Ti scrivo dal tuo sito. Vorrei info per l'uscita "${via}" del ${data}.`;
-            window.open(`https://wa.me/${n}?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function prenotaPersonalizzata() {
+            const msg = `Ciao Gregorio! Vorrei organizzare un'uscita personalizzata con te. Hai disponibilità per una proposta ad hoc?`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
 </body>
