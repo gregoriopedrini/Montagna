@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uscite in Montagna | Greg Pedrini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .gradient-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            transition: transform 0.2s ease;
+        }
+
+        .gradient-card:hover {
+            transform: scale(1.02);
+        }
+
+        .accent-color {
+            color: #38bdf8;
+        }
+
+        .btn-reserve {
+            background-color: #0ea5e9;
+            transition: all 0.3s ease;
+        }
+
+        .btn-reserve:hover {
+            background-color: #0284c7;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="pb-10">
+
+    <!-- Header / Bio -->
+    <header class="w-full py-6 mb-6 border-b border-slate-800">
+        <div class="max-w-md mx-auto text-center px-4">
+            <div class="w-20 h-20 bg-slate-800 rounded-full mx-auto mb-3 flex items-center justify-center border-2 border-sky-500 shadow-lg shadow-sky-500/20 overflow-hidden">
+                 <!-- Puoi sostituire questa icona con una tua foto caricando 'foto.jpg' nel repo e mettendo <img src="foto.jpg"> -->
+                 <i class="fa-solid fa-mountain text-3xl text-sky-400"></i>
+            </div>
+            <h1 class="text-xl font-bold uppercase tracking-widest mb-1">Greg Pedrini</h1>
+            <p class="text-slate-400 text-xs leading-relaxed uppercase tracking-tighter">Alpinismo & Arrampicata</p>
+            
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="https://www.instagram.com/gregpedrini/" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors">
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                </a>
+                <a href="mailto:greg.pedrini@esempio.it" class="text-slate-400 hover:text-sky-400 transition-colors">
+                    <i class="fa-solid fa-envelope text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Lista Uscite -->
+    <main class="max-w-md mx-auto px-4 space-y-5 flex-grow">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2 flex items-center gap-2">
+            <span class="w-8 h-[1px] bg-slate-700"></span> Prossime Date
+        </h2>
+
+        <!-- ESEMPIO USCITA 1 -->
+        <div class="gradient-card p-6 rounded-2xl shadow-2xl">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <span class="text-[10px] font-bold bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5 rounded uppercase tracking-widest">Arrampicata</span>
+                    <h3 class="text-lg font-extrabold mt-2 uppercase leading-tight tracking-tight">VIA DELLE CLESSIDRE</h3>
+                </div>
+                <div class="bg-slate-800 p-2 rounded-lg text-center min-w-[50px] border border-slate-700">
+                    <p class="text-sm font-black leading-none">15</p>
+                    <p class="text-[10px] uppercase font-bold text-sky-400">Giu</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 mb-6 text-[11px] uppercase tracking-wide font-medium">
+                <div class="flex items-center gap-2 text-slate-400">
+                    <i class="fa-solid fa-location-dot text-sky-500"></i> Moiazza
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                    <i class="fa-solid fa-gauge-high text-sky-500"></i> V+ / R2 / II
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                    <i class="fa-solid fa-users text-sky-500"></i> 1 Posto
+                </div>
+            </div>
+
+            <button onclick="prenota('Via delle Clessidre', '15 Giugno')" class="btn-reserve w-full py-4 rounded-xl font-black text-white text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg shadow-sky-500/20">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Prenotati via WhatsApp
+            </button>
+        </div>
+
+        <p class="text-center text-slate-500 text-[10px] italic">
+            Più date in arrivo... resta sintonizzato!
+        </p>
+
+    </main>
+
+    <footer class="max-w-md mx-auto mt-10 text-center px-4">
+        <p class="text-slate-600 text-[9px] uppercase tracking-[0.2em] mb-2 font-bold">
+            Pianificatore Uscite v1.0
+        </p>
+    </footer>
+
+    <script>
+        function prenota(via, data) {
+            // SOSTITUISCI CON IL TUO NUMERO (es. 393401234567)
+            const mioNumero = "391234567890"; 
+            const messaggio = `Ciao Greg! Ti scrivo dal link in bio. Vorrei info per l'uscita "${via}" del ${data}.`;
+            const url = `https://wa.me/${mioNumero}?text=${encodeURIComponent(messaggio)}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
