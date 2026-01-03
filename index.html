@@ -6,7 +6,6 @@
     <title>Gregorio Pedrini | Alpinismo & Arrampicata</title>
     <meta name="description" content="Uscite di alpinismo e arrampicata con Gregorio Pedrini. Scopri il calendario di Gennaio 2026 nelle Alpi Apuane.">
     
-    <!-- Configurazione per il nuovo dominio gregoriopedrini.com -->
     <link rel="canonical" href="https://gregoriopedrini.com/">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,10 +31,12 @@
             transition: all 0.2s ease;
         }
 
-        .gradient-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--brand-color);
-            box-shadow: 0 10px 30px -10px rgba(23, 162, 173, 0.3);
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        details[open] summary i.fa-chevron-down {
+            transform: rotate(180deg);
         }
 
         .custom-card {
@@ -64,9 +65,14 @@
             backdrop-filter: blur(12px);
         }
 
-        /* Ottimizzazione inquadratura immagine profilo */
         .profile-img {
             object-position: center 25%;
+        }
+
+        .badge-beginner {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
     </style>
 </head>
@@ -129,11 +135,23 @@
                     <p class="text-[10px] uppercase font-black text-[#17a2ad]">Gen</p>
                 </div>
             </div>
+
+            <details class="mb-4 group">
+                <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[#17a2ad] transition-colors">
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Maggiori Informazioni
+                </summary>
+                <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                    <p><strong class="text-white uppercase tracking-tighter">Punto di ritrovo:</strong> Piglionico (LU). Verrà inviato privatamente il link al punto preciso.</p>
+                    <p>Salita classica invernale che attraversa il Vallone dell'Inferno. Splendido panorama sul gruppo delle Panie e sul mare.</p>
+                    <p><strong class="text-white uppercase tracking-tighter">Materiale:</strong> Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.</p>
+                </div>
+            </details>
+
             <div class="grid grid-cols-2 gap-4 mb-4 text-[10px] uppercase tracking-wider font-bold text-slate-300">
                 <div><i class="fa-solid fa-arrow-up-right-dots text-[#17a2ad] mr-2"></i>+900m D+</div>
                 <div class="text-[#17a2ad]"><i class="fa-solid fa-euro-sign mr-2"></i>100€ p.p.</div>
-                <div><i class="fa-solid fa-gauge-high text-[#17a2ad] mr-2"></i>Facile</div>
-                <div><i class="fa-solid fa-mountain text-[#17a2ad] mr-2"></i>Imp. Medio</div>
+                <div class="badge-beginner px-2 py-1 rounded-lg text-center font-black">Ideale per iniziare</div>
+                <div><i class="fa-solid fa-dumbbell text-[#17a2ad] mr-2"></i>Fisico: Moderato</div>
             </div>
             <button onclick="prenota('Pania della Croce', '11 Gennaio')" class="btn-reserve w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg shadow-[#17a2ad33]">
                 <i class="fa-brands fa-whatsapp text-lg"></i> Prenotati Ora
@@ -153,11 +171,23 @@
                     <p class="text-[10px] uppercase font-black text-[#17a2ad]">Gen</p>
                 </div>
             </div>
+
+            <details class="mb-4 group">
+                <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[#17a2ad] transition-colors">
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Maggiori Informazioni
+                </summary>
+                <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                    <p><strong class="text-white uppercase tracking-tighter">Punto di ritrovo:</strong> Isola Santa. Verrà inviato privatamente il link al punto preciso.</p>
+                    <p>Una delle creste più belle delle Apuane. Terreno misto ed esposto, richiede buona abitudine al vuoto e passo sicuro.</p>
+                    <p><strong class="text-white uppercase tracking-tighter">Materiale:</strong> Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.</p>
+                </div>
+            </details>
+
             <div class="grid grid-cols-2 gap-4 mb-4 text-[10px] uppercase tracking-wider font-bold text-slate-300">
                 <div><i class="fa-solid fa-arrow-up-right-dots text-[#17a2ad] mr-2"></i>~700m D+</div>
                 <div class="text-[#17a2ad]"><i class="fa-solid fa-euro-sign mr-2"></i>170€ p.p.</div>
-                <div><i class="fa-solid fa-gauge-high text-[#17a2ad] mr-2"></i>Media</div>
                 <div><i class="fa-solid fa-user-group text-[#17a2ad] mr-2"></i>Max 2 Posti</div>
+                <div><i class="fa-solid fa-dumbbell text-[#17a2ad] mr-2"></i>Fisico: Moderato</div>
             </div>
             <button onclick="prenota('Pania Secca - Cresta Denti', '17 Gennaio')" class="btn-reserve w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg shadow-[#17a2ad33]">
                 <i class="fa-brands fa-whatsapp text-lg"></i> Prenotati Ora
@@ -168,7 +198,7 @@
         <div class="gradient-card p-6 rounded-3xl relative overflow-hidden border-l-4 border-l-[#17a2ad]">
             <div class="flex justify-between items-start mb-4">
                 <div class="flex-1">
-                    <span class="text-[9px] font-black bg-[#17a2ad1a] text-[#17a2ad] border border-[#17a2ad4d] px-2 py-1 rounded-full uppercase tracking-widest">Alpinismo Classico</span>
+                    <span class="text-[9px] font-black bg-[#17a2ad1a] text-[#17a2ad] border border-[#17a2ad4d] px-2 py-1 rounded-full uppercase tracking-widest">Alpinismo Invernale</span>
                     <h3 class="text-xl font-black mt-3 uppercase tracking-tighter">MONTE TAMBURA</h3>
                     <p class="text-slate-400 text-[10px] mt-1 uppercase font-bold italic">Dalla Carcaraia (Apuane)</p>
                 </div>
@@ -177,13 +207,61 @@
                     <p class="text-[10px] uppercase font-black text-[#17a2ad]">Gen</p>
                 </div>
             </div>
+
+            <details class="mb-4 group">
+                <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[#17a2ad] transition-colors">
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Maggiori Informazioni
+                </summary>
+                <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                    <p><strong class="text-white uppercase tracking-tighter">Punto di ritrovo:</strong> Lago di Gramolazzo. Verrà inviato privatamente il link al punto preciso.</p>
+                    <p>Ambiente selvaggio e aspro caratterizzato dalla tipica morfologia carsica. La Tambura in inverno offre un'estetica alpina di grande respiro.</p>
+                    <p><strong class="text-white uppercase tracking-tighter">Materiale:</strong> Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.</p>
+                </div>
+            </details>
+
             <div class="grid grid-cols-2 gap-4 mb-4 text-[10px] uppercase tracking-wider font-bold text-slate-300">
                 <div><i class="fa-solid fa-arrow-up-right-dots text-[#17a2ad] mr-2"></i>1000m D+</div>
                 <div class="text-[#17a2ad]"><i class="fa-solid fa-euro-sign mr-2"></i>80€ p.p.</div>
-                <div><i class="fa-solid fa-gauge-high text-[#17a2ad] mr-2"></i>Facile</div>
-                <div><i class="fa-solid fa-users text-[#17a2ad] mr-2"></i>Max 6 Posti</div>
+                <div class="badge-beginner px-2 py-1 rounded-lg text-center font-black">Ideale per iniziare</div>
+                <div><i class="fa-solid fa-dumbbell text-[#17a2ad] mr-2"></i>Fisico: Moderato</div>
             </div>
             <button onclick="prenota('Monte Tambura', '18 Gennaio')" class="btn-reserve w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg shadow-[#17a2ad33]">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Prenotati Ora
+            </button>
+        </div>
+
+        <!-- USCITA 4 -->
+        <div class="gradient-card p-6 rounded-3xl relative overflow-hidden border-l-4 border-l-[#17a2ad]">
+            <div class="flex justify-between items-start mb-4">
+                <div class="flex-1">
+                    <span class="text-[9px] font-black bg-[#17a2ad1a] text-[#17a2ad] border border-[#17a2ad4d] px-2 py-1 rounded-full uppercase tracking-widest">Alpinismo Invernale</span>
+                    <h3 class="text-xl font-black mt-3 uppercase tracking-tighter">MONTE PISANINO</h3>
+                    <p class="text-slate-400 text-[10px] mt-1 uppercase font-bold italic">Cresta della Mirandola</p>
+                </div>
+                <div class="bg-slate-900 p-3 rounded-2xl text-center min-w-[60px] border border-slate-700">
+                    <p class="text-lg font-black text-white">24</p>
+                    <p class="text-[10px] uppercase font-black text-[#17a2ad]">Gen</p>
+                </div>
+            </div>
+
+            <details class="mb-4 group">
+                <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[#17a2ad] transition-colors">
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Maggiori Informazioni
+                </summary>
+                <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                    <p><strong class="text-white uppercase tracking-tighter">Punto di ritrovo:</strong> Lago di Gramolazzo. Verrà inviato privatamente il link al punto preciso.</p>
+                    <p>Ambiente maestoso sul re delle Apuane, una salita di gran soddisfazione lungo una delle sue creste più iconiche.</p>
+                    <p><strong class="text-white uppercase tracking-tighter">Materiale:</strong> Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS, un cordino kevlar doppio giro spalla (anello chiuso da 120cm), un freno tipo secchiello.</p>
+                </div>
+            </details>
+
+            <div class="grid grid-cols-2 gap-4 mb-4 text-[10px] uppercase tracking-wider font-bold text-slate-300">
+                <div><i class="fa-solid fa-arrow-up-right-dots text-[#17a2ad] mr-2"></i>1000m D+</div>
+                <div class="text-[#17a2ad]"><i class="fa-solid fa-euro-sign mr-2"></i>220€ p.p.</div>
+                <div><i class="fa-solid fa-user-group text-[#17a2ad] mr-2"></i>Max 2 Posti</div>
+                <div><i class="fa-solid fa-dumbbell text-[#17a2ad] mr-2"></i>Fisico: Alto</div>
+            </div>
+            <button onclick="prenota('Monte Pisanino - Mirandola', '24 Gennaio')" class="btn-reserve w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg shadow-[#17a2ad33]">
                 <i class="fa-brands fa-whatsapp text-lg"></i> Prenotati Ora
             </button>
         </div>
@@ -210,4 +288,4 @@
         }
     </script>
 </body>
-</html>
+</html>eof
