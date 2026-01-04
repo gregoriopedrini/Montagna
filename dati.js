@@ -17,20 +17,22 @@ const ATTIVITA = [
     // --- CALENDARIO GENNAIO (Uscite fissate) ---
     {
         id: "pania-croce",
-        categoria: "calendario", // Appare nel calendario
+        categoria: "calendario",
         titolo: "Pania della Croce",
         sottotitolo: "Normale dal Vallone dell'Inferno",
         data: "11 Gen",
         anno: "2026",
-        prezzo: "100€",
+        // Opzione A: Prezzo fisso a partecipante (per gruppi più grandi)
+        prezzo_partecipante: "100€ a testa",
+        min_partecipanti: 2,
+        posti_max: 3,
         difficolta: "Facile",
         impegno_fisico: "Moderato",
         ritrovo: "Piglionico (LU) ore 08:30",
-        materiale personale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-        descrizione: "Salita classica invernale che attraversa il Vallone dell'Inferno. Splendido panorama sul gruppo delle Panie e sul mare. Fine attività metà pomeriggio.",
-        img_bck_color: COLORI.main, // Usa il colore principale per il calendario
-        posti_max: 4,
-        posti_occupati: 3
+        materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
+        descrizione: "Salita classica invernale che attraversa il Vallone dell'Inferno.",
+        img_bck_color: COLORI.main,
+        badge: "Ideale per iniziare"
     },
     {
         id: "pania-secca",
@@ -39,15 +41,17 @@ const ATTIVITA = [
         sottotitolo: "Cresta dei Denti della Pania",
         data: "17 Gen",
         anno: "2026",
-        prezzo: "170€",
+         // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
+        prezzo_1: "350€",
+        prezzo_2: "180€ cad.",
+        min_partecipanti: 1,
+        posti_max: 2,
         difficolta: "Media",
         impegno_fisico: "Moderato",
         ritrovo: "Isola Santa ore 08:30",
-        materiale personale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
+        materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
         descrizione: "Una delle creste più belle delle Apuane. Terreno misto ed esposto. Richiesta assenza di vertigini. Fine attività metà pomeriggio.",
         img_bck_color: COLORI.main,
-        posti_max: 2,
-        posti_occupati: 0
     },
     {
         id: "tambura",
@@ -56,15 +60,16 @@ const ATTIVITA = [
         sottotitolo: "Dalla Carcaraia (Apuane)",
         data: "18 Gen",
         anno: "2026",
-        prezzo: "80€",
+        // Opzione A: Prezzo fisso a partecipante (per gruppi più grandi)
+        prezzo_partecipante: "80€ a testa",
+        min_partecipanti: 2,
+        posti_max: 6,
         difficolta: "Facile",
         impegno_fisico: "Moderato",
         ritrovo: "Lago di Gramolazzo ore 08:30",
-        materiale personale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
+        materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
         descrizione: "Ambiente selvaggio e aspro caratterizzato dalla tipica morfologia carsica. La Tambura in inverno offre un'estetica alpina di grande respiro.",
         img_bck_color: COLORI.main,
-        posti_max: 6,
-        posti_occupati: 0,
         badge: "Ideale per iniziare"
     },
     {
@@ -74,15 +79,18 @@ const ATTIVITA = [
         sottotitolo: "Cresta della Mirandola",
         data: "24 Gen",
         anno: "2026",
-        prezzo: "220€",
+        // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
+        prezzo_1: "400€",
+        prezzo_2: "220€ cad.",
+        min_partecipanti: 1,
+        posti_max: 2,
         difficolta: "Media",
         impegno_fisico: "Alto",
         ritrovo: "Lago di Gramolazzo ore 07:00",
-        materiale personale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS, cordino kevlar 120cm, freno, lampada frontale.",
+        materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS, cordino kevlar 120cm, freno, lampada frontale.",
         descrizione: "Ambiente maestoso sul re delle Apuane, una salita di gran soddisfazione lungo una delle sue creste più iconiche.",
         img_bck_color: COLORI.main,
-        posti_max: 2,
-        posti_occupati: 0
+        
     },
 
     // --- CATALOGO: ALPINISMO INVERNALE (Senza data) ---
@@ -92,7 +100,7 @@ const ATTIVITA = [
         titolo: "Canale Centrale Giovo",
         sottotitolo: "Appennino Tosco-Emiliano",
         data: "", // Vuoto perché è a catalogo
-        prezzo: "Trattativa privata",
+        prezzo: "180€",
         difficolta: "AD",
         impegno_fisico: "Alto",
         ritrovo: "Lago Santo Modenese",
