@@ -154,6 +154,6 @@ const ATTIVITA = [
 // --- BIO (CHI SONO) ---
 const BIO = {
     titolo: "Chi Sono",
-    descrizione: "Mi chiamo Gregorio Pedrini, sono un Aspirante Guida Alpina. La montagna è la mia casa e la mia passione. Organizzo uscite su misura per portarti a scoprire le meraviglie delle Apuane e delle Alpi, con un occhio sempre attento alla sicurezza e al divertimento.",
+    descrizione: "Mi chiamo Gregorio Pedrini, sono un Aspirante Guida Alpina di primo livello. La montagna è la mia casa e la mia passione. Organizzo uscite su misura per portarti a scoprire le meraviglie delle Apuane e delle Alpi, con un occhio sempre attento alla sicurezza e al divertimento.",
     img: "https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/iomini.jpeg"
 };
