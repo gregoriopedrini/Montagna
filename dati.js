@@ -80,15 +80,15 @@ const ATTIVITA = [
         data: "24 Gen",
         anno: "2026",
         // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
-        prezzo_1: "400€",
-        prezzo_2: "220€ cad.",
+        prezzo_1: "450€",
+        prezzo_2: "240€ cad.",
         min_partecipanti: 1,
         posti_max: 2,
-        difficolta: "Media",
+        difficolta: "D-",
         impegno_fisico: "Alto",
         ritrovo: "Lago di Gramolazzo ore 07:00",
         materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS, cordino kevlar 120cm, freno, lampada frontale.",
-        descrizione: "Ambiente maestoso sul re delle Apuane, una salita di gran soddisfazione lungo una delle sue creste più iconiche.",
+        descrizione: "Ambiente maestoso sul re delle Apuane, una salita di gran soddisfazione lungo una delle sue creste più iconiche!.",
         img_bck_color: COLORI.main,
         
     },
@@ -100,14 +100,35 @@ const ATTIVITA = [
         titolo: "Canale Centrale Giovo",
         sottotitolo: "Appennino Tosco-Emiliano",
         data: "", // Vuoto perché è a catalogo
-        prezzo: "180€",
-        difficolta: "AD",
-        impegno_fisico: "Alto",
+         // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
+        prezzo_1: "360€",
+        prezzo_2: "190€ cad.",
+        min_partecipanti: 1,
+        posti_max: 2,
+        difficolta: "D",
+        impegno_fisico: "Medio",
         ritrovo: "Lago Santo Modenese",
         materiale: "Due piccozze, ramponi, imbrago, casco, kit autosoccorso.",
         descrizione: "Una classica salita di pendenza su neve e misto facile. Perfetta per introdursi al ripido.",
         img_bck_color: COLORI.marrone
     },
+
+    id: "pisanino",
+        categoria: "Alpinismo",
+        titolo: "Monte Pisanino",
+        sottotitolo: "Cresta della Mirandola",
+        data: "",
+        // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
+        prezzo_1: "450€",
+        prezzo_2: "240€ cad.",
+        min_partecipanti: 1,
+        posti_max: 2,
+        difficolta: "D-",
+        impegno_fisico: "Alto",
+        ritrovo: "Lago di Gramolazzo ore 07:00",
+        materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS, cordino kevlar 120cm, freno, lampada frontale.",
+        descrizione: "Ambiente maestoso sul re delle Apuane, una salita di gran soddisfazione lungo una delle sue creste più iconiche!.",
+        img_bck_color: COLORI.main,
 
     // --- CATALOGO: VIE LUNGHE (Senza data) ---
     {
@@ -116,11 +137,15 @@ const ATTIVITA = [
         titolo: "Via Oppio Colnaghi",
         sottotitolo: "Pizzo d'Uccello",
         data: "",
-        prezzo: "350€",
+         // Opzione B: Prezzo per 1 o 2 persone (per vie tecniche)
+        prezzo_1: "690€",
+        prezzo_2: "340€ cad.",
+        min_partecipanti: 1,
+        posti_max: 2,
         difficolta: "V+",
         impegno_fisico: "Molto Alto",
         ritrovo: "Vincame",
-        materiale: "Scarpette, imbrago, casco, magnesite.",
+        materiale: "Scarpette, imbrago, casco, lampada frontale, 2 litri di acqua",
         descrizione: "La classica delle Apuane. Una salita storica di oltre 700m di sviluppo su roccia ottima.",
         img_bck_color: COLORI.arancione
     },
@@ -131,14 +156,14 @@ const ATTIVITA = [
         categoria: "selvaggio-blu",
         titolo: "Selvaggio Blu",
         sottotitolo: "Sardegna - Golfo di Orosei",
-        data: "10-16 Mag", // Ha la data anche se è una categoria speciale
+        data: "28 Mar - 2 Apr", // Ha la data anche se è una categoria speciale
         anno: "2026",
-        prezzo: "850€",
-        difficolta: "EEA / IV",
+        prezzo: "Da definire",
+        difficolta: "",
         impegno_fisico: "Alto",
         ritrovo: "Santa Maria Navarrese",
-        materiale: "Zaino 40L, sacco a pelo, materassino, imbrago, casco, kit ferrata.",
-        descrizione: "Il trekking più difficile d'Italia. 6 giorni in autonomia tra falesie a picco sul mare, calate in corda doppia e notti sotto le stelle.",
+        materiale: "",
+        descrizione: "Il trekking più difficile d'Italia. 6 giorni in autonomia tra falesie a picco sul mare, calate in corda doppia e notti sotto le stelle. la logistica è ancora in definizione, contattami per avere aggiornamenti!",
         img_bck_color: COLORI.main // Usa il colore main come richiesto
     },
     
@@ -150,6 +175,20 @@ const ATTIVITA = [
         sottotitolo: "Tecniche di progressione su neve",
         data: "",
         prezzo: "250€ (2 giorni)",
+        difficolta: "Base",
+        impegno_fisico: "Basso",
+        ritrovo: "Da definire",
+        materiale: "Noleggio incluso nel prezzo.",
+        descrizione: "Impara l'uso di ramponi e piccozza, l'autosoccorso in valanga e la gestione della cordata.",
+        img_bck_color: COLORI.azzurro
+    },
+ {
+        id: "didattica-arrampicata",
+        categoria: "didattica",
+        titolo: "Didattica arrampicata e sicurezza",
+        sottotitolo: "Tecniche di progressione su neve",
+        data: "",
+        prezzo: "100€",
         difficolta: "Base",
         impegno_fisico: "Basso",
         ritrovo: "Da definire",
