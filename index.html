@@ -10,52 +10,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Caricamento Dati e Logica da GitHub -->
-    <script src="https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/dati.js"></script>
+    <!-- 
+        NOTA: L'URL raw.githubusercontent spesso viene bloccato dai browser perché servito come "text/plain".
+        È preferibile usare cdn.jsdelivr.net per servire i file da GitHub come veri Javascript.
+        URL suggerito: https://cdn.jsdelivr.net/gh/gregoriopedrini/Montagna@main/dati.js
+    -->
+    <script src="https://cdn.jsdelivr.net/gh/gregoriopedrini/Montagna@main/dati.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         
-        :root {
-            --brand-color: #17a2ad;
-        }
-
+        :root { --brand-color: #17a2ad; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
             -webkit-tap-highlight-color: transparent;
         }
-
-        .category-card {
-            transition: transform 0.2s, filter 0.2s;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .category-card:active {
-            transform: scale(0.98);
-        }
-
-        details summary::-webkit-details-marker { display: none; }
-        details[open] summary i.fa-chevron-down { transform: rotate(180deg); }
-
+        .category-card { transition: transform 0.2s; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
+        .category-card:active { transform: scale(0.98); }
         .fade-in { animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .back-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        
-        .gradient-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border: 1px solid #334155;
-            transition: all 0.2s ease;
-        }
+        .back-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; backdrop-filter: blur(10px); }
+        .gradient-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -64,7 +41,7 @@
         <div class="max-w-md mx-auto text-center px-4 flex items-center justify-between">
             <div class="flex items-center gap-4" onclick="showPage('home')" style="cursor: pointer;">
                 <div class="relative w-12 h-12">
-                    <img id="header-img" src="" class="w-full h-full rounded-full object-cover border-2 border-[#17a2ad]" onerror="this.src='https://via.placeholder.com/150'">
+                    <img id="header-img" src="" class="w-full h-full rounded-full object-cover border-2 border-[#17a2ad]" onerror="this.src='https://via.placeholder.com/150?text=GP'">
                 </div>
                 <div class="text-left">
                     <h1 class="text-sm font-black uppercase tracking-tighter leading-none">Gregorio Pedrini</h1>
@@ -77,7 +54,13 @@
         </div>
     </header>
 
-    <main id="app-container" class="max-w-md mx-auto px-4 py-6 flex-grow w-full pb-24"></main>
+    <main id="app-container" class="max-w-md mx-auto px-4 py-6 flex-grow w-full pb-24">
+        <!-- Loader iniziale -->
+        <div id="loader" class="flex flex-col items-center justify-center py-20 space-y-4">
+            <div class="w-8 h-8 border-4 border-[#17a2ad] border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-slate-500 text-xs uppercase tracking-widest">Caricamento dati...</p>
+        </div>
+    </main>
 
     <div id="back-button-container" class="hidden">
         <button onclick="showPage('home')" class="back-btn bg-slate-800/80 text-white px-6 py-3 rounded-full border border-slate-600 shadow-2xl flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-[#17a2ad] transition-colors">
@@ -85,31 +68,45 @@
         </button>
     </div>
 
-    <footer class="max-w-md mx-auto mt-auto text-center px-4 py-6 border-t border-slate-800/50">
-        <p class="text-slate-600 text-[9px] uppercase tracking-widest">
-            &copy; 2026 Gregorio Pedrini
-        </p>
-    </footer>
-
     <script>
-        // --- LOGICA DI NAVIGAZIONE E RENDERING ---
         const app = document.getElementById('app-container');
         const backBtn = document.getElementById('back-button-container');
         const WHATSAPP = "393205586883";
 
-        // Inizializzazione al caricamento
-        window.onload = function() {
-            // Verifica se i dati esterni sono stati caricati
-            if (typeof BIO !== 'undefined') {
-                const headerImg = document.getElementById('header-img');
-                if(headerImg) headerImg.src = BIO.img;
+        // Funzione per verificare se i dati sono caricati
+        function checkData() {
+            if (typeof ATTIVITA === 'undefined' || typeof BIO === 'undefined' || typeof COLORI === 'undefined') {
+                app.innerHTML = `
+                    <div class="text-center py-20 px-6">
+                        <i class="fa-solid fa-triangle-exclamation text-orange-500 text-3xl mb-4"></i>
+                        <h3 class="text-white font-bold mb-2">Errore di caricamento</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Non riesco a trovare il file <b>dati.js</b>. <br><br>
+                            Assicurati che il link di GitHub sia corretto e che il file sia pubblico.
+                        </p>
+                        <button onclick="location.reload()" class="mt-6 text-[10px] uppercase font-bold text-[#17a2ad] border border-[#17a2ad] px-4 py-2 rounded-full">Riprova</button>
+                    </div>
+                `;
+                return false;
             }
-            showPage('home');
+            return true;
+        }
+
+        window.onload = function() {
+            setTimeout(() => { // Piccolo delay per permettere allo script esterno di essere interpretato
+                if (checkData()) {
+                    const headerImg = document.getElementById('header-img');
+                    if(headerImg && BIO.img) headerImg.src = BIO.img;
+                    showPage('home');
+                }
+            }, 500);
         };
 
         function showPage(pageId, categoryFilter = null) {
+            if (!checkData()) return;
             app.innerHTML = ''; 
             window.scrollTo(0,0);
+            
             if (pageId === 'home') {
                 renderHome();
                 backBtn.classList.add('hidden');
@@ -123,8 +120,7 @@
         }
 
         function renderHome() {
-            const mainColor = (typeof COLORI !== 'undefined') ? COLORI.main : "#17a2ad";
-            
+            const mainColor = COLORI.main;
             app.innerHTML = `
                 <div class="fade-in space-y-4">
                     <div onclick="showPage('bio')" class="bg-slate-800 p-4 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-[#17a2ad] transition-all">
@@ -146,10 +142,10 @@
                     </div>
                     <div class="h-px bg-slate-800 w-full my-6"></div>
                     <div class="grid grid-cols-1 gap-3">
-                        ${renderCategoryBanner("Alpinismo", "alpinismo", (typeof COLORI !== 'undefined' ? COLORI.marrone : "#695d46"), "fa-snowflake")}
-                        ${renderCategoryBanner("Vie Lunghe", "vie-lunghe", (typeof COLORI !== 'undefined' ? COLORI.arancione : "#ff5e0e"), "fa-mountain")}
-                        ${renderCategoryBanner("Didattica", "didattica", (typeof COLORI !== 'undefined' ? COLORI.azzurro : "#a3e7d9"), "fa-graduation-cap", "text-slate-800")}
-                        ${renderCategoryBanner("Ferrate", "ferrate", (typeof COLORI !== 'undefined' ? COLORI.begino : "#cfc194"), "fa-layer-group", "text-slate-800")}
+                        ${renderCategoryBanner("Alpinismo", "alpinismo", COLORI.marrone, "fa-snowflake")}
+                        ${renderCategoryBanner("Vie Lunghe", "vie-lunghe", COLORI.arancione, "fa-mountain")}
+                        ${renderCategoryBanner("Didattica", "didattica", COLORI.azzurro, "fa-graduation-cap", "text-slate-800")}
+                        ${renderCategoryBanner("Ferrate", "ferrate", COLORI.begino, "fa-layer-group", "text-slate-800")}
                     </div>
                 </div>
             `;
@@ -163,10 +159,9 @@
         }
 
         function renderList(category) {
-            if (typeof ATTIVITA === 'undefined') return;
             const items = ATTIVITA.filter(item => item.categoria === category);
             let pageTitle = category === 'calendario' ? "Prossime Uscite" : category.toUpperCase();
-            const mainColor = (typeof COLORI !== 'undefined') ? COLORI.main : "#17a2ad";
+            const mainColor = COLORI.main;
             
             let html = `<div class="fade-in space-y-6"><h2 class="text-xl font-black uppercase tracking-tighter text-white border-l-4 border-[#17a2ad] pl-3">${pageTitle}</h2>`;
 
@@ -227,7 +222,6 @@
         }
 
         function renderBio() {
-            if (typeof BIO === 'undefined') return;
             app.innerHTML = `
                 <div class="fade-in text-center">
                     <div class="w-32 h-32 mx-auto mb-6 relative">
