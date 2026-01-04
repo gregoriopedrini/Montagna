@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- 
-        NOTA: L'URL raw.githubusercontent spesso viene bloccato dai browser perché servito come "text/plain".
-        È preferibile usare cdn.jsdelivr.net per servire i file da GitHub come veri Javascript.
-        URL suggerito: https://cdn.jsdelivr.net/gh/gregoriopedrini/Montagna@main/dati.js
+        Uso jsDelivr per caricare il file da GitHub. 
+        Questo evita il blocco dei browser (MIME type mismatch) che accade con l'URL "raw".
     -->
     <script src="https://cdn.jsdelivr.net/gh/gregoriopedrini/Montagna@main/dati.js"></script>
     
@@ -55,7 +54,6 @@
     </header>
 
     <main id="app-container" class="max-w-md mx-auto px-4 py-6 flex-grow w-full pb-24">
-        <!-- Loader iniziale -->
         <div id="loader" class="flex flex-col items-center justify-center py-20 space-y-4">
             <div class="w-8 h-8 border-4 border-[#17a2ad] border-t-transparent rounded-full animate-spin"></div>
             <p class="text-slate-500 text-xs uppercase tracking-widest">Caricamento dati...</p>
@@ -73,16 +71,15 @@
         const backBtn = document.getElementById('back-button-container');
         const WHATSAPP = "393205586883";
 
-        // Funzione per verificare se i dati sono caricati
         function checkData() {
+            // Controllo se le variabili globali definite in dati.js esistono
             if (typeof ATTIVITA === 'undefined' || typeof BIO === 'undefined' || typeof COLORI === 'undefined') {
                 app.innerHTML = `
                     <div class="text-center py-20 px-6">
                         <i class="fa-solid fa-triangle-exclamation text-orange-500 text-3xl mb-4"></i>
                         <h3 class="text-white font-bold mb-2">Errore di caricamento</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
-                            Non riesco a trovare il file <b>dati.js</b>. <br><br>
-                            Assicurati che il link di GitHub sia corretto e che il file sia pubblico.
+                        <p class="text-slate-400 text-[10px] leading-relaxed italic">
+                            Non trovo i dati su GitHub.<br>Controlla che dati.js sia pubblico e senza errori.
                         </p>
                         <button onclick="location.reload()" class="mt-6 text-[10px] uppercase font-bold text-[#17a2ad] border border-[#17a2ad] px-4 py-2 rounded-full">Riprova</button>
                     </div>
@@ -93,13 +90,14 @@
         }
 
         window.onload = function() {
-            setTimeout(() => { // Piccolo delay per permettere allo script esterno di essere interpretato
+            // Aspettiamo un attimo che il file JS esterno venga processato
+            setTimeout(() => {
                 if (checkData()) {
                     const headerImg = document.getElementById('header-img');
                     if(headerImg && BIO.img) headerImg.src = BIO.img;
                     showPage('home');
                 }
-            }, 500);
+            }, 800);
         };
 
         function showPage(pageId, categoryFilter = null) {
@@ -120,7 +118,6 @@
         }
 
         function renderHome() {
-            const mainColor = COLORI.main;
             app.innerHTML = `
                 <div class="fade-in space-y-4">
                     <div onclick="showPage('bio')" class="bg-slate-800 p-4 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-[#17a2ad] transition-all">
@@ -161,7 +158,6 @@
         function renderList(category) {
             const items = ATTIVITA.filter(item => item.categoria === category);
             let pageTitle = category === 'calendario' ? "Prossime Uscite" : category.toUpperCase();
-            const mainColor = COLORI.main;
             
             let html = `<div class="fade-in space-y-6"><h2 class="text-xl font-black uppercase tracking-tighter text-white border-l-4 border-[#17a2ad] pl-3">${pageTitle}</h2>`;
 
@@ -169,8 +165,9 @@
                 html += `<div class="text-center py-10 text-slate-500 text-sm">Contattami per disponibilità in questa categoria.</div>`;
             } else {
                 items.forEach(item => {
+                    const col = item.img_bck_color || COLORI.main;
                     html += `
-                    <div class="gradient-card p-6 rounded-3xl relative overflow-hidden" style="border-left: 4px solid ${item.img_bck_color || mainColor}">
+                    <div class="gradient-card p-6 rounded-3xl relative overflow-hidden" style="border-left: 4px solid ${col}">
                         <div class="flex justify-between items-start mb-4">
                             <div class="flex-1">
                                 ${item.badge ? `<span class="bg-emerald-500/20 text-emerald-400 text-[9px] px-2 py-1 rounded font-bold uppercase mb-2 inline-block">${item.badge}</span>` : ''}
@@ -180,7 +177,7 @@
                             ${item.data ? `
                             <div class="bg-slate-900 p-2 rounded-xl text-center min-w-[60px] border border-slate-700 shadow-inner">
                                 <p class="text-sm font-black text-white leading-none mb-1">${item.data.split(' ')[0]}</p>
-                                <p class="text-[9px] uppercase font-black" style="color: ${item.img_bck_color || mainColor}">${item.data.split(' ')[1] || ''}</p>
+                                <p class="text-[9px] uppercase font-black" style="color: ${col}">${item.data.split(' ')[1] || ''}</p>
                             </div>` : ''}
                         </div>
 
@@ -212,7 +209,7 @@
                             </div>
                         </details>
 
-                        <button onclick="prenota('${item.titolo}')" class="w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg" style="background-color: ${item.img_bck_color || mainColor}">
+                        <button onclick="prenota('${item.titolo}')" class="w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-95 shadow-lg" style="background-color: ${col}">
                             <i class="fa-brands fa-whatsapp text-lg"></i> Prenota
                         </button>
                     </div>`;
