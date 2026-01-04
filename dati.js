@@ -186,14 +186,17 @@ const ATTIVITA = [
         id: "didattica-arrampicata",
         categoria: "didattica",
         titolo: "Didattica arrampicata e sicurezza",
-        sottotitolo: "Tecniche di progressione su neve",
+        sottotitolo: "testa, tecnica e metodologia",
         data: "",
-        prezzo: "100€",
+        // Opzione A: Prezzo fisso a partecipante (per gruppi più grandi)
+        prezzo_partecipante: "100€ a testa",
+        min_partecipanti: 2,
+        posti_max: 4,
         difficolta: "Base",
         impegno_fisico: "Basso",
         ritrovo: "Da definire",
-        materiale: "Noleggio incluso nel prezzo.",
-        descrizione: "Impara l'uso di ramponi e piccozza, l'autosoccorso in valanga e la gestione della cordata.",
+        materiale: "Materiale da falesia, imbrago e casco",
+        descrizione: "Didattica di arrampicata, gestione della paura e sicurezza della cordata",
         img_bck_color: COLORI.azzurro
     }
 ];
@@ -201,6 +204,6 @@ const ATTIVITA = [
 // --- BIO (CHI SONO) ---
 const BIO = {
     titolo: "Chi Sono",
-    descrizione: "Mi chiamo Gregorio Pedrini, sono un Aspirante Guida Alpina di primo livello. La montagna è la mia casa e la mia passione. Organizzo uscite su misura per portarti a scoprire le meraviglie delle Apuane e delle Alpi, con un occhio sempre attento alla sicurezza e al divertimento.",
+    descrizione: "Mi chiamo Gregorio Pedrini, nel 2025 ho terminato il corso per diventare Aspirante Guida Alpina di primo livello. Nato e cresciuto in Garfagnana la montagna è la mia casa e la mia passione. Nonostante la mia età sono un ottimo conoscitore delle Apuane, mi diletto a cercare itinerari dimenticati per dargli nuova vita, relazionandoli e cambiandone i chiodi. Questa mia indole alla ricerca unita ad una serie di coincidenze ha fatto si che diventassi autore della prosssima guida delle vie lunghe in Apuane edita da Versante sud che uscirà nel 2026. Organizzo uscite su misura per portarti a scoprire le meraviglie delle Apuane e delle Alpi, con un occhio sempre attento alla sicurezza e al divertimento.",
     img: "https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/iomini.jpeg"
 };
