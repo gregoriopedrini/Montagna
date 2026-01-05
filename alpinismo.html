@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpinismo Invernale | Gregorio Pedrini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .gradient-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary i.fa-chevron-down { transform: rotate(180deg); }
+        .price-box { background: rgba(105, 93, 70, 0.2); border: 1px solid rgba(105, 93, 70, 0.4); border-radius: 12px; padding: 10px; }
+        .btn-alp { background-color: #695d46; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-24">
 
+    <header class="w-full py-6 bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-white hover:text-[#695d46]">
+                <i class="fa-solid fa-arrow-left"></i> <span class="font-bold uppercase text-xs">Home</span>
+            </a>
+            <h1 class="text-[#695d46] font-black uppercase text-sm tracking-widest">Alpinismo</h1>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6 space-y-6">
+
+        <!-- BARRA DI RICERCA -->
+        <div class="relative mb-6">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+            <input type="text" id="searchInput" onkeyup="filterList()" placeholder="Cerca cima o itinerario..." class="w-full bg-slate-800 border border-slate-700 rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:border-[#695d46] transition-all text-white placeholder-slate-500">
+        </div>
+
+        <div id="activitiesList" class="space-y-6">
+
+            <!-- CANALE GIOVO -->
+            <div class="gradient-card p-6 rounded-3xl relative overflow-hidden border-l-4 border-[#695d46]">
+                <div class="mb-4">
+                    <span class="bg-emerald-500/20 text-emerald-400 text-[9px] px-2 py-1 rounded font-bold uppercase mb-2 inline-block">Ideale per iniziare</span>
+                    <h3 class="text-xl font-black mt-1 uppercase tracking-tighter">Ramponata sul Monte Giovo</h3>
+                    <p class="text-slate-400 text-[10px] mt-1 uppercase font-bold italic">Appennino Tosco-Emiliano</p>
+                </div>
+
+                <div class="price-box flex justify-between items-center mb-4">
+                    <span class="text-[10px] text-slate-400 uppercase font-bold">Quota Partecipante</span>
+                    <span class="text-white font-black text-sm">80€ a testa</span>
+                </div>
+
+                <details class="mb-4 group">
+                    <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Dettagli
+                    </summary>
+                    <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                        <p><strong class="text-white">Ritrovo:</strong> Lago Santo Modenese.</p>
+                        <p><strong class="text-white">Materiale:</strong> Due piccozze, ramponi, imbrago, casco.</p>
+                        <p>Una classica salita di pendenza su neve e misto facile, ottima per iniziare l'alpinismo invernale.</p>
+                    </div>
+                </details>
+
+                <button onclick="window.open('https://wa.me/393205586883?text=Info Monte Giovo', '_blank')" class="w-full py-4 rounded-2xl btn-alp font-black text-white text-[11px] uppercase tracking-widest flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Richiedi Info
+                </button>
+            </div>
+
+            <!-- PISANINO (CATALOGO) -->
+            <div class="gradient-card p-6 rounded-3xl relative overflow-hidden border-l-4 border-[#695d46]">
+                <div class="mb-4">
+                    <h3 class="text-xl font-black mt-1 uppercase tracking-tighter">Monte Pisanino</h3>
+                    <p class="text-slate-400 text-[10px] mt-1 uppercase font-bold italic">Cresta della Mirandola</p>
+                </div>
+
+                <div class="price-box space-y-2 mb-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] text-slate-400 uppercase font-bold">1 Persona</span>
+                        <span class="text-white font-black text-sm">450€</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-slate-700/50 pt-2">
+                        <span class="text-[10px] text-slate-400 uppercase font-bold">2 Persone</span>
+                        <span class="text-white font-black text-sm">240€ cad.</span>
+                    </div>
+                </div>
+
+                <details class="mb-4 group">
+                    <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i> Dettagli
+                    </summary>
+                    <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-2">
+                        <p><strong class="text-white">Ritrovo:</strong> Lago di Gramolazzo.</p>
+                        <p><strong class="text-white">Materiale:</strong> Ramponi 12 punte, piccozza classica, imbrago, casco, cordino kevlar 120cm.</p>
+                        <p>Ambiente maestoso sul re delle Apuane. Una salita tecnica di grande soddisfazione!</p>
+                    </div>
+                </details>
+
+                <button onclick="window.open('https://wa.me/393205586883?text=Info Pisanino Mirandola', '_blank')" class="w-full py-4 rounded-2xl btn-alp font-black text-white text-[11px] uppercase tracking-widest flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Richiedi Info
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Messaggio Nessun Risultato -->
+        <div id="noResults" class="hidden text-center py-10 text-slate-500 text-sm italic">
+            Nessuna salita trovata.
+        </div>
+
+    </main>
+
+    <footer class="max-w-md mx-auto py-8 text-center text-slate-600 text-[10px] uppercase tracking-widest border-t border-slate-800/50">
+        &copy; 2026 Gregorio Pedrini | Guida Alpina
+    </footer>
+
+    <script>
+        function filterList() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const list = document.getElementById('activitiesList');
+            const cards = list.getElementsByClassName('gradient-card');
+            let visibleCount = 0;
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].querySelector('h3').innerText;
+                const subtitle = cards[i].querySelector('p').innerText;
+                
+                if (title.toUpperCase().indexOf(filter) > -1 || subtitle.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                    visibleCount++;
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
