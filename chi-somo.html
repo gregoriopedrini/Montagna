@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Sono | Gregorio Pedrini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .gradient-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-24">
+
+    <header class="w-full py-6 bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-white hover:text-[#17a2ad]">
+                <i class="fa-solid fa-arrow-left"></i> <span class="font-bold uppercase text-xs">Home</span>
+            </a>
+            <h1 class="text-[#17a2ad] font-black uppercase text-sm tracking-widest">Profilo</h1>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-8 text-center space-y-6">
+        
+        <div class="relative w-32 h-32 mx-auto">
+            <img src="https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/iomini.jpeg" class="w-full h-full rounded-full object-cover border-4 border-[#17a2ad] shadow-2xl">
+        </div>
+
+        <h2 class="text-2xl font-black uppercase tracking-tighter">Gregorio Pedrini</h2>
+        <p class="text-[#17a2ad] text-xs font-bold uppercase tracking-widest -mt-4">Aspirante Guida Alpina</p>
+
+        <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 text-slate-300 text-sm leading-relaxed text-left space-y-4">
+            <p>
+                Mi chiamo Gregorio Pedrini e la montagna è, da sempre, la mia casa. Nato e cresciuto in Garfagnana, ho trasformato questa passione in una professione, completando nel 2025 il corso per diventare Aspirante Guida Alpina di primo livello.
+            </p>
+            <p>
+                Il mio percorso accademico in <strong>Scienze Naturali e Ambientali</strong> mi permette di accompagnarti non solo lungo pareti e sentieri, ma anche alla scoperta dell'equilibrio ecologico e della geologia che rendono unici i nostri massicci.
+            </p>
+            <p>
+                Amo definirmi un ricercatore di itinerari dimenticati: mi diletto nel ridare vita a vecchie vie, relazionandole e rinnovandone le protezioni per renderle nuovamente fruibili. Questa dedizione mi ha portato a diventare l'autore della prossima guida <em>"Vie Lunghe in Apuane"</em>, che sarà edita da Versante Sud (2026).
+            </p>
+            <p>
+                Che si tratti di Apuane o di Alpi, organizzo uscite su misura dove sicurezza, conoscenza del territorio e divertimento sono sempre al primo posto.
+            </p>
+        </div>
+
+        <button onclick="window.open('https://wa.me/393205586883?text=Ciao Gregorio! Vorrei conoscerti meglio per organizzare un\'uscita.', '_blank')" class="bg-[#17a2ad] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest shadow-lg hover:bg-[#12818a] transition-colors">
+            Scrivimi su WhatsApp
+        </button>
+
+    </main>
+</body>
+</html>
