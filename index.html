@@ -1,63 +1,32 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <link rel="icon" href="https://raw.githubusercontent.com/gregoriopedrini/Montagna/refs/heads/main/ropeicon.ico" type="image/ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gregorio Pedrini | Vertical Adventures</title>
-    <meta name="description" content="Alpinismo, Arrampicata e Trekking con Gregorio Pedrini.">
+    <meta name="description" content="Guida Alpina in Apuane e Alpi. Alpinismo, Vie Lunghe e Corsi.">
     <link rel="canonical" href="https://gregoriopedrini.com/">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
-        
-        :root { --brand-color: #17a2ad; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .category-card { transition: transform 0.2s; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-        .category-card:active { transform: scale(0.98); }
-        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .back-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; backdrop-filter: blur(10px); }
-        .gradient-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
-        
-        details summary::-webkit-details-marker { display: none; }
-        details[open] summary i.fa-chevron-down { transform: rotate(180deg); }
-
-        .tech-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 6px 10px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .price-box {
-            background: rgba(23, 162, 173, 0.05);
-            border: 1px solid rgba(23, 162, 173, 0.2);
-            border-radius: 12px;
-            padding: 10px;
-        }
+        /* Colori Categorie */
+        .bg-alp { background-color: #695d46; }
+        .bg-vie { background-color: #ff5e0e; }
+        .bg-did { background-color: #cfc194; color: #1e293b; } /* Testo scuro su fondo chiaro */
+        .bg-sel { background-color: #a3e7d9; color: #1e293b; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <header class="w-full py-6 bg-slate-900/90 border-b border-slate-800 shadow-xl sticky top-0 z-40 backdrop-blur-md">
+    <header class="w-full py-8 bg-slate-900/90 border-b border-slate-800 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-md mx-auto text-center px-4 flex items-center justify-between">
-            <div class="flex items-center gap-4" onclick="showPage('home')" style="cursor: pointer;">
+            <div class="flex items-center gap-4">
                 <div class="relative w-12 h-12">
-                    <img id="header-img" src="" class="w-full h-full rounded-full object-cover border-2 border-[#17a2ad]" onerror="this.src='https://via.placeholder.com/150?text=GP'">
+                    <img src="https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/iomini.jpeg" class="w-full h-full rounded-full object-cover border-2 border-[#17a2ad]">
                 </div>
                 <div class="text-left">
                     <h1 class="text-sm font-black uppercase tracking-tighter leading-none">Gregorio Pedrini</h1>
@@ -70,435 +39,58 @@
         </div>
     </header>
 
-    <main id="app-container" class="max-w-md mx-auto px-4 py-6 flex-grow w-full pb-24"></main>
+    <main class="max-w-md mx-auto px-4 py-8 flex-grow w-full space-y-4 fade-in">
+        
+        <!-- CHI SONO -->
+        <a href="chi-sono.html" class="block bg-slate-800 p-4 rounded-2xl flex items-center justify-between border border-slate-700 hover:border-[#17a2ad] transition-all">
+            <span class="font-bold uppercase tracking-widest text-sm">Chi Sono</span>
+            <i class="fa-solid fa-user-astronaut text-[#17a2ad]"></i>
+        </a>
 
-    <div id="back-button-container" class="hidden">
-        <button onclick="showPage('home')" class="back-btn bg-slate-800/80 text-white px-6 py-3 rounded-full border border-slate-600 shadow-2xl flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-[#17a2ad] transition-colors">
-            <i class="fa-solid fa-arrow-left"></i> Home
-        </button>
-    </div>
+        <!-- CALENDARIO -->
+        <a href="calendario.html" class="block relative overflow-hidden bg-gradient-to-r from-[#17a2ad] to-[#12818a] p-6 rounded-3xl shadow-lg shadow-[#17a2ad33]">
+            <div class="relative z-10 flex items-center justify-between">
+                <div>
+                    <h2 class="text-white font-black text-xl uppercase italic tracking-tighter">Calendario<br>Uscite</h2>
+                    <p class="text-white/80 text-[10px] uppercase font-bold mt-1">Prossimi Eventi 2026</p>
+                </div>
+                <i class="fa-regular fa-calendar-check text-4xl text-white/20"></i>
+            </div>
+        </a>
+
+        <!-- USCITA PERSONALIZZATA -->
+        <div onclick="window.open('https://wa.me/393205586883?text=Ciao Gregorio! Vorrei organizzare un\'uscita personalizzata.', '_blank')" class="border-2 border-dashed border-[#17a2ad]/50 p-4 rounded-2xl text-center cursor-pointer hover:bg-[#17a2ad]/10 transition-colors">
+            <p class="text-[#17a2ad] font-bold uppercase text-xs tracking-widest mb-1"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Uscita Su Misura</p>
+            <p class="text-slate-500 text-[10px]">Realizziamo il tuo obiettivo.</p>
+        </div>
+
+        <div class="h-px bg-slate-800 w-full my-6"></div>
+        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-2 ml-1">Categorie Attività</p>
+
+        <!-- CATEGORIE -->
+        <div class="grid grid-cols-1 gap-3">
+            <a href="alpinismo.html" class="bg-alp p-5 rounded-2xl flex items-center justify-between shadow-md text-white hover:brightness-110 transition-all">
+                <span class="font-black uppercase tracking-tighter text-lg">Alpinismo Invernale</span>
+                <i class="fa-solid fa-snowflake text-xl opacity-80"></i>
+            </a>
+            <a href="vie-lunghe.html" class="bg-vie p-5 rounded-2xl flex items-center justify-between shadow-md text-white hover:brightness-110 transition-all">
+                <span class="font-black uppercase tracking-tighter text-lg">Vie Lunghe</span>
+                <i class="fa-solid fa-mountain text-xl opacity-80"></i>
+            </a>
+            <a href="didattica.html" class="bg-did p-5 rounded-2xl flex items-center justify-between shadow-md hover:brightness-110 transition-all">
+                <span class="font-black uppercase tracking-tighter text-lg">Didattica e Sicurezza</span>
+                <i class="fa-solid fa-graduation-cap text-xl opacity-80"></i>
+            </a>
+            <a href="selvaggio-blu.html" class="bg-sel p-5 rounded-2xl flex items-center justify-between shadow-md hover:brightness-110 transition-all">
+                <span class="font-black uppercase tracking-tighter text-lg">Selvaggio Blu</span>
+                <i class="fa-solid fa-water text-xl opacity-80"></i>
+            </a>
+        </div>
+
+    </main>
 
     <footer class="max-w-md mx-auto mt-auto text-center px-4 py-6 border-t border-slate-800/50">
-        <p class="text-slate-600 text-[9px] uppercase tracking-widest">
-            &copy; 2026 Gregorio Pedrini
-        </p>
+        <p class="text-slate-600 text-[9px] uppercase tracking-widest">&copy; 2026 Gregorio Pedrini</p>
     </footer>
-
-    <script>
-        const COLORI = {
-            main: "#17a2ad",
-            begino: "#cfc194",
-            azzurro: "#a3e7d9",
-            arancione: "#ff5e0e",
-            marrone: "#695d46",
-            dark: "#0f172a"
-        };
-
-        const ATTIVITA = [
-            {
-                id: "pania-croce-cal",
-                categoria: "calendario",
-                titolo: "Pania della Croce",
-                sottotitolo: "Normale dal Vallone dell'Inferno",
-                data: "11 Gen",
-                anno: "2026",
-                prezzo_partecipante: "100€ a testa",
-                posti_max: 3,
-                difficolta: "F+",
-                dislivello: "+850m",
-                impegno_fisico: "Moderato",
-                ritrovo: "Piglionico (LU) ore 08:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-                descrizione: "Salita classica invernale che attraversa il Vallone dell'Inferno. Un'esperienza imperdibile nel cuore delle Apuane.",
-                img_bck_color: COLORI.main,
-                badge: "Ideale per iniziare"
-            },
-             {
-                id: "pania-croce",
-                categoria: "alpinismo",
-                titolo: "Pania della Croce",
-                sottotitolo: "Normale dal Vallone dell'Inferno",
-                data: "",
-                prezzo_partecipante: "100€ a testa",
-                posti_max: 3,
-                difficolta: "F+",
-                dislivello: "+850m",
-                impegno_fisico: "Moderato",
-                ritrovo: "Piglionico (LU) ore 08:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-                descrizione: "Salita classica invernale che attraversa il Vallone dell'Inferno. Un'esperienza imperdibile nel cuore delle Apuane.",
-                img_bck_color: COLORI.azzurro,
-                badge: "Ideale per iniziare"
-            },
-            {
-                id: "pania-secca-cal",
-                categoria: "calendario",
-                titolo: "Pania Secca",
-                sottotitolo: "Cresta dei Denti della Pania",
-                data: "17 Gen",
-                anno: "2026",
-                prezzo_1: "350€",
-                prezzo_2: "180€ cad.",
-                posti_max: 2,
-                difficolta: "PD+",
-                dislivello: "+700m",
-                impegno_fisico: "Alto",
-                ritrovo: "Piglionico (LU) ore 08:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-                descrizione: "Una delle creste più belle ed estetiche delle Apuane. Terreno misto, esposto e panoramico.",
-                img_bck_color: COLORI.main,
-            },
-             {
-                id: "pania-secca",
-                categoria: "alpinismo",
-                titolo: "Pania Secca",
-                sottotitolo: "Cresta dei Denti della Pania",
-                data: "",
-                prezzo_1: "350€",
-                prezzo_2: "180€ cad.",
-                posti_max: 2,
-                difficolta: "PD+",
-                dislivello: "+700m",
-                impegno_fisico: "Alto",
-                ritrovo: "Piglionico (LU) ore 08:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-                descrizione: "Una delle creste più belle ed estetiche delle Apuane. Terreno misto, esposto e panoramico.",
-                img_bck_color: COLORI.arruzzo,
-            },
-            {
-                id: "tambura",
-                categoria: "calendario",
-                titolo: "Monte Tambura",
-                sottotitolo: "Dalla Carcaraia (Apuane)",
-                data: "18 Gen",
-                anno: "2026",
-                prezzo_partecipante: "80€ a testa",
-                posti_max: 6,
-                difficolta: "E (Invernale)",
-                dislivello: "+1050m",
-                impegno_fisico: "Moderato",
-                ritrovo: "Lago di Gramolazzo ore 08:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, una ghiera HMS.",
-                descrizione: "Ambiente selvaggio e aspro caratterizzato dalla tipica morfologia carsica della Carcaraia.",
-                img_bck_color: COLORI.main,
-                badge: "Classica"
-            },
-            {
-                id: "pisanino-cal",
-                categoria: "calendario",
-                titolo: "Monte Pisanino",
-                sottotitolo: "Cresta della Mirandola",
-                data: "24 Gen",
-                anno: "2026",
-                prezzo_1: "450€",
-                prezzo_2: "240€ cad.",
-                posti_max: 2,
-                difficolta: "AD+/D",
-                dislivello: "+1100m",
-                impegno_fisico: "Molto Alto",
-                ritrovo: "Lago di Gramolazzo ore 06:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, cordino kevlar 120cm.",
-                descrizione: "Ambiente maestoso sul re delle Apuane. Una salita tecnica di grande soddisfazione!",
-                img_bck_color: COLORI.main,
-            },
-              {
-                id: "pisanino",
-                categoria: "alpinismo",
-                titolo: "Monte Pisanino",
-                sottotitolo: "Cresta della Mirandola",
-                data: "",
-                prezzo_1: "450€",
-                prezzo_2: "240€ cad.",
-                posti_max: 2,
-                difficolta: "AD+/D",
-                dislivello: "+1100m",
-                impegno_fisico: "Molto Alto",
-                ritrovo: "Lago di Gramolazzo ore 06:30",
-                materiale: "Ramponi 12 punte, piccozza classica, imbrago, casco, cordino kevlar 120cm.",
-                descrizione: "Ambiente maestoso sul re delle Apuane. Una salita tecnica di grande soddisfazione!",
-                img_bck_color: COLORI.azzurro,
-            },
-            {
-                id: "salita-giovo",
-                categoria: "alpinismo",
-                titolo: "Ramponata sul Monte Giovo",
-                sottotitolo: "Appennino Tosco-Emiliano",
-                data: "",
-                prezzo_partecipante: "80€ a testa",
-                posti_max: 4,
-                difficolta: "facile",
-                dislivello: "+500m",
-                impegno_fisico: "Medio",
-                ritrovo: "Lago Santo Modenese",
-                materiale: "Due piccozze, ramponi, imbrago, casco.",
-                descrizione: "Una classica salita di pendenza su neve e misto facile, ottima per iniziare l'alpinismo invernale.",
-                img_bck_color: COLORI.azzurro,
-                 badge: "Ideale per iniziare"
-            },
-            {
-                id: "oppio-colnaghi",
-                categoria: "vie-lunghe",
-                titolo: "Via Oppio Colnaghi",
-                sottotitolo: "Pizzo d'Uccello - Parete Nord",
-                data: "",
-                prezzo_1: "690€",
-                prezzo_2: "340€ cad.",
-                min_partecipanti: 1,
-                posti_max: 2,
-                difficolta: "V+",
-                dislivello: "800m sviluppo",
-                impegno_fisico: "Molto Alto",
-                ritrovo: "Rif. Donegani",
-                materiale: "Scarpette, imbrago, casco, lampada frontale.",
-                descrizione: "La salita storica più famosa delle Apuane. Una parete imponente e una linea logica incredibile.",
-                img_bck_color: COLORI.arancione
-            },
-            {   
-            id: "selvaggio-blu-mag",
-        categoria: "selvaggio-blu",
-        titolo: "Selvaggio Blu",
-        sottotitolo: "Sardegna - Golfo di Orosei",
-        data: "28 Mar - 2 Apr", // Ha la data anche se è una categoria speciale
-        anno: "2026",
-        prezzo: "Da definire",
-        difficolta: "",
-        impegno_fisico: "Alto",
-        ritrovo: "Santa Maria Navarrese",
-        materiale: "",
-        descrizione: "Il trekking più difficile d'Italia. 6 giorni in autonomia tra falesie a picco sul mare, calate in corda doppia e notti sotto le stelle. la logistica è ancora in definizione, contattami per avere aggiornamenti!",
-        img_bck_color: COLORI.main // Usa il colore main come richiesto
-    },
-    
-    // --- CATALOGO: DIDATTICA (Senza data) ---
-    {
-        id: "corso-base",
-        categoria: "didattica",
-        titolo: "Corso Base Alpinismo",
-        sottotitolo: "Tecniche di progressione su neve",
-        data: "",
-        prezzo: "250€ (2 giorni)",
-        difficolta: "Base",
-        impegno_fisico: "Basso",
-        ritrovo: "Da definire",
-        materiale: "Noleggio incluso nel prezzo.",
-        descrizione: "Impara l'uso di ramponi e piccozza, l'autosoccorso in valanga e la gestione della cordata.",
-        img_bck_color: COLORI.azzurro
-    },
- {
-        id: "didattica-arrampicata",
-        categoria: "didattica",
-        titolo: "Didattica arrampicata e sicurezza",
-        sottotitolo: "testa, tecnica e metodologia",
-        data: "",
-        // Opzione A: Prezzo fisso a partecipante (per gruppi più grandi)
-        prezzo_partecipante: "100€ a testa",
-        min_partecipanti: 2,
-        posti_max: 4,
-        difficolta: "Base",
-        impegno_fisico: "Basso",
-        ritrovo: "Da definire",
-        materiale: "Materiale da falesia, imbrago e casco",
-        descrizione: "Didattica di arrampicata, gestione della paura e sicurezza della cordata",
-        img_bck_color: COLORI.azzurro
-    }
-       
-            
-        ];
-
-        const BIO = {
-            titolo: "Chi Sono",
-            descrizione: "Mi chiamo Gregorio Pedrini e la montagna è, da sempre, la mia casa. Nato e cresciuto in Garfagnana, ho trasformato questa passione in una professione, completando nel 2025 il corso per diventare Aspirante Guida Alpina di primo livello. <br><br> Il mio percorso accademico in Scienze Naturali e Ambientali mi permette di accompagnarti non solo lungo pareti e sentieri, ma anche alla scoperta dell'equilibrio ecologico e della geologia che rendono unici i nostri massicci. <br><br> Amo definirmi un ricercatore di itinerari dimenticati: mi diletto nel ridare vita a vecchie vie, relazionandole e rinnovandone le protezioni per renderle nuovamente fruibili. Questa dedizione mi ha portato a diventare l'autore della prossima guida 'Vie Lunghe in Apuane', che sarà edita da Versante Sud (2026). <br><br> Che si tratti di Apuane o di Alpi, organizzo uscite su misura dove sicurezza, conoscenza del territorio e divertimento sono sempre al primo posto.",
-            img: "https://raw.githubusercontent.com/gregoriopedrini/Montagna/main/iomini.jpeg"
-        };
-
-        const app = document.getElementById('app-container');
-        const backBtn = document.getElementById('back-button-container');
-        const WHATSAPP = "393205586883";
-
-        function init() {
-            const headerImg = document.getElementById('header-img');
-            if(headerImg) headerImg.src = BIO.img;
-            showPage('home');
-        }
-
-        function showPage(pageId, categoryFilter = null) {
-            app.innerHTML = ''; 
-            window.scrollTo(0,0);
-            if (pageId === 'home') {
-                renderHome();
-                backBtn.classList.add('hidden');
-            } else if (pageId === 'bio') {
-                renderBio();
-                backBtn.classList.remove('hidden');
-            } else if (pageId === 'list') {
-                renderList(categoryFilter);
-                backBtn.classList.remove('hidden');
-            }
-        }
-
-        function renderHome() {
-            app.innerHTML = `
-                <div class="fade-in space-y-4">
-                    <div onclick="showPage('bio')" class="bg-slate-800 p-4 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-[#17a2ad] transition-all">
-                        <span class="font-bold uppercase tracking-widest text-sm">Chi Sono</span>
-                        <i class="fa-solid fa-user-astronaut text-[#17a2ad]"></i>
-                    </div>
-                    <div onclick="showPage('list', 'calendario')" class="relative overflow-hidden bg-gradient-to-r from-[#17a2ad] to-[#12818a] p-6 rounded-3xl cursor-pointer shadow-lg shadow-[#17a2ad33] group">
-                        <div class="relative z-10 flex items-center justify-between">
-                            <div>
-                                <h2 class="text-white font-black text-xl uppercase italic tracking-tighter">Calendario<br>Uscite</h2>
-                                <p class="text-white/80 text-[10px] uppercase font-bold mt-1">Eventi 2026</p>
-                            </div>
-                            <i class="fa-regular fa-calendar-check text-4xl text-white/20 group-hover:scale-110 transition-transform"></i>
-                        </div>
-                    </div>
-                    <div onclick="prenotaPersonalizzata()" class="border-2 border-dashed border-[#17a2ad]/50 p-4 rounded-2xl text-center cursor-pointer hover:bg-[#17a2ad]/10 transition-colors">
-                        <p class="text-[#17a2ad] font-bold uppercase text-xs tracking-widest mb-1"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Uscita Su Misura</p>
-                        <p class="text-slate-500 text-[10px]">Realizziamo il tuo obiettivo.</p>
-                    </div>
-                    <div class="h-px bg-slate-800 w-full my-6"></div>
-                    <div class="grid grid-cols-1 gap-3">
-                        ${renderCategoryBanner("Alpinismo", "alpinismo", COLORI.marrone, "fa-snowflake")}
-                        ${renderCategoryBanner("Vie Lunghe", "vie-lunghe", COLORI.arancione, "fa-mountain")}
-                        ${renderCategoryBanner("Didattica", "didattica", COLORI.begino, "fa-graduation-cap", "text-slate-800")}
-                        ${renderCategoryBanner("Selvaggio Blu", "selvaggio-blu",  COLORI.azzurro, "fa-tides", "text-slate-800")}
-
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderCategoryBanner(label, catId, bgColor, icon, textColor = "text-white") {
-            return `<div onclick="showPage('list', '${catId}')" class="${textColor} p-5 rounded-2xl category-card flex items-center justify-between shadow-md" style="background-color: ${bgColor}">
-                <span class="font-black uppercase tracking-tighter text-lg">${label}</span>
-                <i class="fa-solid ${icon} text-xl opacity-80"></i>
-            </div>`;
-        }
-
-        function renderList(category) {
-            const items = ATTIVITA.filter(item => item.categoria === category);
-            let pageTitle = category === 'calendario' ? "Prossime Uscite" : category.replace('-', ' ').toUpperCase();
-            let html = `<div class="fade-in space-y-6"><h2 class="text-xl font-black uppercase tracking-tighter text-white border-l-4 border-[#17a2ad] pl-3">${pageTitle}</h2>`;
-
-            if (items.length === 0) {
-                html += `<div class="text-center py-10 text-slate-500 text-sm">Contattami per disponibilità.</div>`;
-            } else {
-                items.forEach(item => {
-                    const col = item.img_bck_color || COLORI.main;
-                    const showDate = (category === 'calendario') && item.data;
-                    
-                    // Logica Prezzo esplicita
-                    let priceHTML = '';
-                    if (item.prezzo_1 && item.prezzo_2) {
-                        priceHTML = `
-                        <div class="price-box space-y-2 mt-4">
-                            <div class="flex justify-between items-center">
-                                <span class="text-[10px] text-slate-400 uppercase font-bold">Singolo (Guida Esclusiva)</span>
-                                <span class="text-white font-black text-sm">${item.prezzo_1}</span>
-                            </div>
-                            <div class="flex justify-between items-center border-t border-slate-700/50 pt-2">
-                                <span class="text-[10px] text-slate-400 uppercase font-bold">Coppia (2 Persone)</span>
-                                <span class="text-[#17a2ad] font-black text-sm">${item.prezzo_2}</span>
-                            </div>
-                        </div>`;
-                    } else {
-                        priceHTML = `
-                        <div class="price-box flex justify-between items-center mt-4">
-                            <span class="text-[10px] text-slate-400 uppercase font-bold">Quota Partecipante</span>
-                            <span class="text-[#17a2ad] font-black text-sm">${item.prezzo_partecipante || 'Su richiesta'}</span>
-                        </div>`;
-                    }
-
-                    html += `
-                    <div class="gradient-card p-6 rounded-3xl relative overflow-hidden" style="border-left: 4px solid ${col}">
-                        
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex-1">
-                                ${item.badge ? `<span class="bg-emerald-500/20 text-emerald-400 text-[9px] px-2 py-1 rounded font-bold uppercase mb-2 inline-block">${item.badge}</span>` : ''}
-                                <h3 class="text-xl font-black mt-1 uppercase tracking-tighter leading-tight">${item.titolo}</h3>
-                                <p class="text-slate-400 text-[10px] mt-1 uppercase font-bold italic">${item.sottotitolo}</p>
-                            </div>
-                            ${showDate ? `
-                            <div class="bg-slate-900 p-2 rounded-xl text-center min-w-[60px] border border-slate-700 shadow-inner">
-                                <p class="text-sm font-black text-white leading-none mb-1">${item.data.split(' ')[0]}</p>
-                                <p class="text-[9px] uppercase font-black" style="color: ${col}">${item.data.split(' ').slice(1).join(' ')}</p>
-                            </div>` : ''}
-                        </div>
-
-                        <p class="text-slate-400 text-xs mb-5 italic border-l border-slate-700 pl-3">
-                            "${item.descrizione}"
-                        </p>
-
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="tech-badge text-white">
-                                <i class="fa-solid fa-chart-line text-[#17a2ad] opacity-70"></i>
-                                ${item.difficolta || 'N/D'}
-                            </div>
-                            <div class="tech-badge text-white">
-                                <i class="fa-solid fa-mountain-arrow-up text-[#17a2ad] opacity-70"></i>
-                                ${item.dislivello || 'N/D'}
-                            </div>
-                        </div>
-
-                        ${priceHTML}
-
-                        <details class="my-4 group">
-                            <summary class="list-none cursor-pointer flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors">
-                                <i class="fa-solid fa-chevron-down transition-transform"></i> Dettagli Tecnici
-                            </summary>
-                            <div class="mt-4 p-4 bg-slate-900/50 rounded-2xl border border-slate-700 text-[11px] leading-relaxed text-slate-300 space-y-3">
-                                <div>
-                                    <strong class="text-white uppercase text-[9px] block mb-1">Ritrovo:</strong> 
-                                    ${item.ritrovo || 'Da definire'}
-                                </div>
-                                <div>
-                                    <strong class="text-white uppercase text-[9px] block mb-1">Materiale:</strong> 
-                                    ${item.materiale || 'Contattami per info'}
-                                </div>
-                                <div>
-                                    <strong class="text-white uppercase text-[9px] block mb-1">Impegno Fisico:</strong> 
-                                    ${item.impegno_fisico || 'N/D'}
-                                </div>
-                            </div>
-                        </details>
-
-                        <button onclick="prenota('${item.titolo}')" class="w-full py-4 rounded-2xl font-black text-white text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-lg" style="background-color: ${col}">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Prenota Posto
-                        </button>
-                    </div>`;
-                });
-            }
-            app.innerHTML = html + `</div>`;
-        }
-
-        function renderBio() {
-            app.innerHTML = `
-                <div class="fade-in text-center">
-                    <div class="w-32 h-32 mx-auto mb-6 relative">
-                        <img src="${BIO.img}" class="w-full h-full rounded-full object-cover border-4 border-[#17a2ad] shadow-2xl">
-                    </div>
-                    <h2 class="text-2xl font-black uppercase text-white mb-4">Chi Sono</h2>
-                    <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 text-slate-300 text-sm leading-relaxed text-left">
-                        <p>${BIO.descrizione}</p>
-                    </div>
-                    <div class="mt-8">
-                        <button onclick="prenotaPersonalizzata()" class="bg-[#17a2ad] text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest shadow-lg">Contattami</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function prenota(titolo) {
-            const msg = `Ciao Gregorio! Vorrei informazioni per l'uscita: ${titolo}`;
-            window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function prenotaPersonalizzata() {
-            const msg = `Ciao Gregorio! Vorrei organizzare un'uscita personalizzata.`;
-            window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        init();
-    </script>
 </body>
 </html>
